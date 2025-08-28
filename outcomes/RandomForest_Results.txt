@@ -1,0 +1,275 @@
+ Round 1 Results Summary:
+------------------------------------------------------------parameters: 
+{
+    "n_estimators": 100,
+    "max_depth": 20,
+    "min_samples_split": 4,
+    "min_samples_leaf": 2,
+    "max_features": 5
+}
+Training Time: 17s
+Analysis        | Prec: 0.1338  Rec: 0.5195  F1: 0.2127  Supp: 437
+Backdoors       | Prec: 0.1436  Rec: 0.3602  F1: 0.2053  Supp: 397
+DoS             | Prec: 0.2717  Rec: 0.2683  F1: 0.2700  Supp: 1133
+Exploits        | Prec: 0.7830  Rec: 0.7424  F1: 0.7621  Supp: 5520
+Fuzzers         | Prec: 0.4172  Rec: 0.8511  F1: 0.5600  Supp: 4359
+Generic         | Prec: 0.9656  Rec: 0.8682  F1: 0.9143  Supp: 5076
+Normal          | Prec: 1.0000  Rec: 0.9849  F1: 0.9924  Supp: 391955
+Reconnaissance  | Prec: 0.8573  Rec: 0.7870  F1: 0.8206  Supp: 2671
+Shellcode       | Prec: 0.2801  Rec: 0.7550  F1: 0.4086  Supp: 302
+Worms           | Prec: 0.2105  Rec: 0.5882  F1: 0.3101  Supp: 34
+accuracy        | 0.9742
+macro avg       | Prec: 0.5063  Rec: 0.6725  F1: 0.5456  Supp: 411884
+weighted avg    | Prec: 0.9852  Rec: 0.9742  F1: 0.9786  Supp: 411884
+
+
+ Round 2 Results Summary:
+------------------------------------------------------------parameters: 
+{
+    "n_estimators": 300,
+    "max_depth": 20,
+    "min_samples_split": 4,
+    "min_samples_leaf": 2,
+    "max_features": 5
+}
+Training Time: 48s
+Analysis        | Prec: 0.1341  Rec: 0.5240  F1: 0.2135  Supp: 437
+Backdoors       | Prec: 0.1474  Rec: 0.3602  F1: 0.2092  Supp: 397
+DoS             | Prec: 0.2656  Rec: 0.2710  F1: 0.2682  Supp: 1133
+Exploits        | Prec: 0.7897  Rec: 0.7435  F1: 0.7659  Supp: 5520
+Fuzzers         | Prec: 0.4177  Rec: 0.8513  F1: 0.5604  Supp: 4359
+Generic         | Prec: 0.9660  Rec: 0.8668  F1: 0.9137  Supp: 5076
+Normal          | Prec: 1.0000  Rec: 0.9849  F1: 0.9924  Supp: 391955
+Reconnaissance  | Prec: 0.8575  Rec: 0.7888  F1: 0.8218  Supp: 2671
+Shellcode       | Prec: 0.2765  Rec: 0.7517  F1: 0.4043  Supp: 302
+Worms           | Prec: 0.2083  Rec: 0.5882  F1: 0.3077  Supp: 34
+accuracy        | 0.9743
+macro avg       | Prec: 0.5063  Rec: 0.6730  F1: 0.5457  Supp: 411884
+weighted avg    | Prec: 0.9853  Rec: 0.9743  F1: 0.9786  Supp: 411884
+
+
+ Round 3 Results Summary:
+------------------------------------------------------------parameters: 
+{
+    "n_estimators": 500,
+    "max_depth": null,
+    "min_samples_split": 4,
+    "min_samples_leaf": 2,
+    "max_features": 5
+}
+Training Time: 84s
+Analysis        | Prec: 0.1310  Rec: 0.4142  F1: 0.1990  Supp: 437
+Backdoors       | Prec: 0.1404  Rec: 0.2670  F1: 0.1840  Supp: 397
+DoS             | Prec: 0.2380  Rec: 0.2966  F1: 0.2640  Supp: 1133
+Exploits        | Prec: 0.7772  Rec: 0.7578  F1: 0.7674  Supp: 5520
+Fuzzers         | Prec: 0.4168  Rec: 0.8568  F1: 0.5608  Supp: 4359
+Generic         | Prec: 0.9515  Rec: 0.8702  F1: 0.9090  Supp: 5076
+Normal          | Prec: 1.0000  Rec: 0.9849  F1: 0.9924  Supp: 391955
+Reconnaissance  | Prec: 0.8305  Rec: 0.7851  F1: 0.8072  Supp: 2671
+Shellcode       | Prec: 0.3046  Rec: 0.7020  F1: 0.4248  Supp: 302
+Worms           | Prec: 0.2469  Rec: 0.5882  F1: 0.3478  Supp: 34
+accuracy        | 0.9744
+macro avg       | Prec: 0.5037  Rec: 0.6523  F1: 0.5457  Supp: 411884
+weighted avg    | Prec: 0.9847  Rec: 0.9744  F1: 0.9785  Supp: 411884
+
+
+ Round 4 Results Summary:
+------------------------------------------------------------parameters: 
+{
+    "n_estimators": 500,
+    "max_depth": 30,
+    "min_samples_split": 4,
+    "min_samples_leaf": 2,
+    "max_features": 5
+}
+Training Time: 83s
+Analysis        | Prec: 0.1309  Rec: 0.4325  F1: 0.2010  Supp: 437
+Backdoors       | Prec: 0.1382  Rec: 0.2796  F1: 0.1850  Supp: 397
+DoS             | Prec: 0.2408  Rec: 0.2939  F1: 0.2647  Supp: 1133
+Exploits        | Prec: 0.7791  Rec: 0.7558  F1: 0.7673  Supp: 5520
+Fuzzers         | Prec: 0.4165  Rec: 0.8559  F1: 0.5603  Supp: 4359
+Generic         | Prec: 0.9565  Rec: 0.8702  F1: 0.9113  Supp: 5076
+Normal          | Prec: 1.0000  Rec: 0.9849  F1: 0.9924  Supp: 391955
+Reconnaissance  | Prec: 0.8424  Rec: 0.7847  F1: 0.8126  Supp: 2671
+Shellcode       | Prec: 0.3067  Rec: 0.7119  F1: 0.4287  Supp: 302
+Worms           | Prec: 0.2410  Rec: 0.5882  F1: 0.3419  Supp: 34
+accuracy        | 0.9744
+macro avg       | Prec: 0.5052  Rec: 0.6558  F1: 0.5465  Supp: 411884
+weighted avg    | Prec: 0.9849  Rec: 0.9744  F1: 0.9786  Supp: 411884
+
+
+ Round 5 Results Summary:
+------------------------------------------------------------parameters: 
+{
+    "n_estimators": 300,
+    "max_depth": 40,
+    "min_samples_split": 4,
+    "min_samples_leaf": 2,
+    "max_features": 5
+}
+Training Time: 51s
+Analysis        | Prec: 0.1317  Rec: 0.4233  F1: 0.2009  Supp: 437
+Backdoors       | Prec: 0.1385  Rec: 0.2645  F1: 0.1818  Supp: 397
+DoS             | Prec: 0.2350  Rec: 0.2913  F1: 0.2601  Supp: 1133
+Exploits        | Prec: 0.7753  Rec: 0.7571  F1: 0.7661  Supp: 5520
+Fuzzers         | Prec: 0.4172  Rec: 0.8573  F1: 0.5612  Supp: 4359
+Generic         | Prec: 0.9526  Rec: 0.8714  F1: 0.9102  Supp: 5076
+Normal          | Prec: 1.0000  Rec: 0.9849  F1: 0.9924  Supp: 391955
+Reconnaissance  | Prec: 0.8302  Rec: 0.7851  F1: 0.8070  Supp: 2671
+Shellcode       | Prec: 0.3084  Rec: 0.6954  F1: 0.4273  Supp: 302
+Worms           | Prec: 0.2469  Rec: 0.5882  F1: 0.3478  Supp: 34
+accuracy        | 0.9744
+macro avg       | Prec: 0.5036  Rec: 0.6518  F1: 0.5455  Supp: 411884
+weighted avg    | Prec: 0.9847  Rec: 0.9744  F1: 0.9785  Supp: 411884
+
+
+ Round 6 Results Summary:
+------------------------------------------------------------parameters: 
+{
+    "n_estimators": 300,
+    "max_depth": 25,
+    "min_samples_split": 4,
+    "min_samples_leaf": 2,
+    "max_features": 5
+}
+Training Time: 49s
+Analysis        | Prec: 0.1329  Rec: 0.4737  F1: 0.2076  Supp: 437
+Backdoors       | Prec: 0.1329  Rec: 0.3123  F1: 0.1865  Supp: 397
+DoS             | Prec: 0.2556  Rec: 0.2824  F1: 0.2683  Supp: 1133
+Exploits        | Prec: 0.7798  Rec: 0.7520  F1: 0.7657  Supp: 5520
+Fuzzers         | Prec: 0.4173  Rec: 0.8548  F1: 0.5608  Supp: 4359
+Generic         | Prec: 0.9587  Rec: 0.8690  F1: 0.9116  Supp: 5076
+Normal          | Prec: 1.0000  Rec: 0.9849  F1: 0.9924  Supp: 391955
+Reconnaissance  | Prec: 0.8496  Rec: 0.7825  F1: 0.8147  Supp: 2671
+Shellcode       | Prec: 0.3055  Rec: 0.7152  F1: 0.4281  Supp: 302
+Worms           | Prec: 0.2353  Rec: 0.5882  F1: 0.3361  Supp: 34
+accuracy        | 0.9743
+macro avg       | Prec: 0.5068  Rec: 0.6615  F1: 0.5472  Supp: 411884
+weighted avg    | Prec: 0.9850  Rec: 0.9743  F1: 0.9786  Supp: 411884
+
+
+ Round 7 Results Summary:
+------------------------------------------------------------parameters: 
+{
+    "n_estimators": 300,
+    "max_depth": 30,
+    "min_samples_split": 4,
+    "min_samples_leaf": 2,
+    "max_features": 10
+}
+Training Time: 91s
+Analysis        | Prec: 0.1238  Rec: 0.3455  F1: 0.1823  Supp: 437
+Backdoors       | Prec: 0.1411  Rec: 0.2368  F1: 0.1769  Supp: 397
+DoS             | Prec: 0.2295  Rec: 0.3142  F1: 0.2653  Supp: 1133
+Exploits        | Prec: 0.7712  Rec: 0.7607  F1: 0.7659  Supp: 5520
+Fuzzers         | Prec: 0.4150  Rec: 0.8559  F1: 0.5590  Supp: 4359
+Generic         | Prec: 0.9353  Rec: 0.8775  F1: 0.9055  Supp: 5076
+Normal          | Prec: 1.0000  Rec: 0.9848  F1: 0.9923  Supp: 391955
+Reconnaissance  | Prec: 0.8152  Rec: 0.7810  F1: 0.7977  Supp: 2671
+Shellcode       | Prec: 0.3190  Rec: 0.6623  F1: 0.4306  Supp: 302
+Worms           | Prec: 0.2676  Rec: 0.5588  F1: 0.3619  Supp: 34
+accuracy        | 0.9743
+macro avg       | Prec: 0.5018  Rec: 0.6377  F1: 0.5437  Supp: 411884
+weighted avg    | Prec: 0.9843  Rec: 0.9743  F1: 0.9783  Supp: 411884
+
+
+ Round 8 Results Summary:
+------------------------------------------------------------parameters: 
+{
+    "n_estimators": 400,
+    "max_depth": 35,
+    "min_samples_split": 4,
+    "min_samples_leaf": 2,
+    "max_features": 5
+}
+Training Time: 68s
+Analysis        | Prec: 0.1293  Rec: 0.4073  F1: 0.1963  Supp: 437
+Backdoors       | Prec: 0.1374  Rec: 0.2695  F1: 0.1820  Supp: 397
+DoS             | Prec: 0.2381  Rec: 0.2957  F1: 0.2638  Supp: 1133
+Exploits        | Prec: 0.7770  Rec: 0.7562  F1: 0.7664  Supp: 5520
+Fuzzers         | Prec: 0.4167  Rec: 0.8571  F1: 0.5608  Supp: 4359
+Generic         | Prec: 0.9491  Rec: 0.8704  F1: 0.9080  Supp: 5076
+Normal          | Prec: 1.0000  Rec: 0.9849  F1: 0.9924  Supp: 391955
+Reconnaissance  | Prec: 0.8308  Rec: 0.7832  F1: 0.8063  Supp: 2671
+Shellcode       | Prec: 0.3027  Rec: 0.6987  F1: 0.4224  Supp: 302
+Worms           | Prec: 0.2532  Rec: 0.5882  F1: 0.3540  Supp: 34
+accuracy        | 0.9743
+macro avg       | Prec: 0.5034  Rec: 0.6511  F1: 0.5452  Supp: 411884
+weighted avg    | Prec: 0.9847  Rec: 0.9743  F1: 0.9784  Supp: 411884
+
+
+ Round 9 Results Summary:
+------------------------------------------------------------parameters: 
+{
+    "n_estimators": 300,
+    "max_depth": 20,
+    "min_samples_split": 4,
+    "min_samples_leaf": 2,
+    "max_features": 5
+}
+Training Time: 52s
+Analysis        | Prec: 0.1341  Rec: 0.5240  F1: 0.2135  Supp: 437
+Backdoors       | Prec: 0.1474  Rec: 0.3602  F1: 0.2092  Supp: 397
+DoS             | Prec: 0.2656  Rec: 0.2710  F1: 0.2682  Supp: 1133
+Exploits        | Prec: 0.7897  Rec: 0.7435  F1: 0.7659  Supp: 5520
+Fuzzers         | Prec: 0.4177  Rec: 0.8513  F1: 0.5604  Supp: 4359
+Generic         | Prec: 0.9660  Rec: 0.8668  F1: 0.9137  Supp: 5076
+Normal          | Prec: 1.0000  Rec: 0.9849  F1: 0.9924  Supp: 391955
+Reconnaissance  | Prec: 0.8575  Rec: 0.7888  F1: 0.8218  Supp: 2671
+Shellcode       | Prec: 0.2765  Rec: 0.7517  F1: 0.4043  Supp: 302
+Worms           | Prec: 0.2083  Rec: 0.5882  F1: 0.3077  Supp: 34
+accuracy        | 0.9743
+macro avg       | Prec: 0.5063  Rec: 0.6730  F1: 0.5457  Supp: 411884
+weighted avg    | Prec: 0.9853  Rec: 0.9743  F1: 0.9786  Supp: 411884
+
+
+ Round 10 Results Summary:
+------------------------------------------------------------parameters: 
+{
+    "n_estimators": 300,
+    "max_depth": 30,
+    "min_samples_split": 4,
+    "min_samples_leaf": 2,
+    "max_features": 5
+}
+Training Time: 52s
+Analysis        | Prec: 0.1300  Rec: 0.4302  F1: 0.1997  Supp: 437
+Backdoors       | Prec: 0.1350  Rec: 0.2796  F1: 0.1821  Supp: 397
+DoS             | Prec: 0.2496  Rec: 0.2966  F1: 0.2711  Supp: 1133
+Exploits        | Prec: 0.7783  Rec: 0.7563  F1: 0.7672  Supp: 5520
+Fuzzers         | Prec: 0.4167  Rec: 0.8568  F1: 0.5607  Supp: 4359
+Generic         | Prec: 0.9547  Rec: 0.8712  F1: 0.9110  Supp: 5076
+Normal          | Prec: 1.0000  Rec: 0.9849  F1: 0.9924  Supp: 391955
+Reconnaissance  | Prec: 0.8441  Rec: 0.7844  F1: 0.8131  Supp: 2671
+Shellcode       | Prec: 0.3056  Rec: 0.7053  F1: 0.4264  Supp: 302
+Worms           | Prec: 0.2439  Rec: 0.5882  F1: 0.3448  Supp: 34
+accuracy        | 0.9744
+macro avg       | Prec: 0.5058  Rec: 0.6554  F1: 0.5469  Supp: 411884
+weighted avg    | Prec: 0.9849  Rec: 0.9744  F1: 0.9786  Supp: 411884
+
+
+ Round 11 Results Summary:
+------------------------------------------------------------parameters: 
+{
+    "n_estimators": 300,
+    "max_depth": 30,
+    "min_samples_split": 4,
+    "min_samples_leaf": 2,
+    "max_features": 10
+}
+Training Time: 91s
+Analysis        | Prec: 0.1238  Rec: 0.3455  F1: 0.1823  Supp: 437
+Backdoors       | Prec: 0.1411  Rec: 0.2368  F1: 0.1769  Supp: 397
+DoS             | Prec: 0.2295  Rec: 0.3142  F1: 0.2653  Supp: 1133
+Exploits        | Prec: 0.7712  Rec: 0.7607  F1: 0.7659  Supp: 5520
+Fuzzers         | Prec: 0.4150  Rec: 0.8559  F1: 0.5590  Supp: 4359
+Generic         | Prec: 0.9353  Rec: 0.8775  F1: 0.9055  Supp: 5076
+Normal          | Prec: 1.0000  Rec: 0.9848  F1: 0.9923  Supp: 391955
+Reconnaissance  | Prec: 0.8152  Rec: 0.7810  F1: 0.7977  Supp: 2671
+Shellcode       | Prec: 0.3190  Rec: 0.6623  F1: 0.4306  Supp: 302
+Worms           | Prec: 0.2676  Rec: 0.5588  F1: 0.3619  Supp: 34
+accuracy        | 0.9743
+macro avg       | Prec: 0.5018  Rec: 0.6377  F1: 0.5437  Supp: 411884
+weighted avg    | Prec: 0.9843  Rec: 0.9743  F1: 0.9783  Supp: 411884
+
+

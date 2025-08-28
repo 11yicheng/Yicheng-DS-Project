@@ -1,0 +1,341 @@
+ Round 1 Results Summary:
+------------------------------------------------------------
+parameters: 
+{
+    "num_heads": 2,
+    "ff_dim": 64,
+    "num_layers": 1,
+    "dropout_rate": 0.3,
+    "epochs": 20,
+    "activation": "relu",
+    "learning_rate": 0.001,
+    "batch_size": 64,
+    "gamma": 2.0,
+    "alpha": 0.25
+}
+Training Time: 1469s
+Analysis        | Prec: 0.1295  Rec: 0.6796  F1: 0.2176  Supp: 437
+Backdoors       | Prec: 0.0791  Rec: 0.3023  F1: 0.1254  Supp: 397
+DoS             | Prec: 0.1517  Rec: 0.2012  F1: 0.1730  Supp: 1133
+Exploits        | Prec: 0.7495  Rec: 0.5159  F1: 0.6112  Supp: 5520
+Fuzzers         | Prec: 0.3508  Rec: 0.7892  F1: 0.4857  Supp: 4359
+Generic         | Prec: 0.8507  Rec: 0.7914  F1: 0.8200  Supp: 5076
+Normal          | Prec: 0.9999  Rec: 0.9783  F1: 0.9890  Supp: 391955
+Reconnaissance  | Prec: 0.2857  Rec: 0.0112  F1: 0.0216  Supp: 2671
+Shellcode       | Prec: 0.0830  Rec: 0.8609  F1: 0.1513  Supp: 302
+Worms           | Prec: 0.0159  Rec: 0.7059  F1: 0.0310  Supp: 34
+accuracy        | 0.9583
+macro avg       | Prec: 0.3696  Rec: 0.5836  F1: 0.3626  Supp: 411884
+weighted avg    | Prec: 0.9783  Rec: 0.9583  F1: 0.9656  Supp: 411884
+
+
+ Round 2 Results Summary:
+------------------------------------------------------------
+parameters: 
+{
+    "num_heads": 2,
+    "ff_dim": 64,
+    "num_layers": 2,
+    "dropout_rate": 0.3,
+    "learning_rate": 0.0005,
+    "batch_size": 64,
+    "epochs": 20,
+    "activation": "relu",
+    "gamma": 2.0,
+    "alpha": 0.25
+}
+Training Time: 687s
+Analysis        | Prec: 0.0605  Rec: 0.1693  F1: 0.0891  Supp: 437
+Backdoors       | Prec: 0.0983  Rec: 0.8111  F1: 0.1753  Supp: 397
+DoS             | Prec: 0.2000  Rec: 0.0424  F1: 0.0699  Supp: 1133
+Exploits        | Prec: 0.6670  Rec: 0.5861  F1: 0.6239  Supp: 5520
+Fuzzers         | Prec: 0.3774  Rec: 0.7169  F1: 0.4945  Supp: 4359
+Generic         | Prec: 0.6201  Rec: 0.7874  F1: 0.6938  Supp: 5076
+Normal          | Prec: 0.9999  Rec: 0.9740  F1: 0.9868  Supp: 391955
+Reconnaissance  | Prec: 0.5631  Rec: 0.3778  F1: 0.4522  Supp: 2671
+Shellcode       | Prec: 0.0861  Rec: 0.5927  F1: 0.1503  Supp: 302
+Worms           | Prec: 0.0171  Rec: 0.9412  F1: 0.0336  Supp: 34
+accuracy        | 0.9561
+macro avg       | Prec: 0.3689  Rec: 0.5999  F1: 0.3769  Supp: 411884
+weighted avg    | Prec: 0.9765  Rec: 0.9561  F1: 0.9647  Supp: 411884
+
+
+ Round 3 Results Summary:
+------------------------------------------------------------
+parameters: 
+{
+    "num_heads": 2,
+    "ff_dim": 64,
+    "num_layers": 3,
+    "dropout_rate": 0.3,
+    "learning_rate": 0.0007,
+    "batch_size": 64,
+    "epochs": 20,
+    "activation": "relu",
+    "gamma": 2.0,
+    "alpha": 0.25
+}
+Training Time: 1888s
+Analysis        | Prec: 0.0000  Rec: 0.0000  F1: 0.0000  Supp: 437
+Backdoors       | Prec: 0.1050  Rec: 0.8287  F1: 0.1864  Supp: 397
+DoS             | Prec: 0.1364  Rec: 0.0026  F1: 0.0052  Supp: 1133
+Exploits        | Prec: 0.5683  Rec: 0.6165  F1: 0.5914  Supp: 5520
+Fuzzers         | Prec: 0.3475  Rec: 0.7130  F1: 0.4673  Supp: 4359
+Generic         | Prec: 0.5080  Rec: 0.7892  F1: 0.6181  Supp: 5076
+Normal          | Prec: 1.0000  Rec: 0.9690  F1: 0.9843  Supp: 391955
+Reconnaissance  | Prec: 0.6965  Rec: 0.4598  F1: 0.5539  Supp: 2671
+Shellcode       | Prec: 0.0534  Rec: 0.4470  F1: 0.0954  Supp: 302
+Worms           | Prec: 0.0168  Rec: 0.8824  F1: 0.0329  Supp: 34
+accuracy        | 0.9519
+macro avg       | Prec: 0.3432  Rec: 0.5708  F1: 0.3535  Supp: 411884
+weighted avg    | Prec: 0.9742  Rec: 0.9519  F1: 0.9610  Supp: 411884
+
+
+ Round 4 Results Summary:
+------------------------------------------------------------
+parameters: 
+{
+    "num_heads": 2,
+    "ff_dim": 64,
+    "num_layers": 4,
+    "dropout_rate": 0.3,
+    "learning_rate": 0.0003,
+    "batch_size": 64,
+    "epochs": 20,
+    "activation": "relu",
+    "gamma": 2.0,
+    "alpha": 0.25
+}
+Training Time: 1318s
+Analysis        | Prec: 0.1120  Rec: 0.8330  F1: 0.1974  Supp: 437
+Backdoors       | Prec: 0.0000  Rec: 0.0000  F1: 0.0000  Supp: 397
+DoS             | Prec: 0.1429  Rec: 0.0035  F1: 0.0069  Supp: 1133
+Exploits        | Prec: 0.4562  Rec: 0.5748  F1: 0.5087  Supp: 5520
+Fuzzers         | Prec: 0.3466  Rec: 0.7855  F1: 0.4809  Supp: 4359
+Generic         | Prec: 0.6278  Rec: 0.7892  F1: 0.6993  Supp: 5076
+Normal          | Prec: 0.9999  Rec: 0.9585  F1: 0.9788  Supp: 391955
+Reconnaissance  | Prec: 0.5760  Rec: 0.0270  F1: 0.0515  Supp: 2671
+Shellcode       | Prec: 0.0743  Rec: 0.7980  F1: 0.1360  Supp: 302
+Worms           | Prec: 0.0046  Rec: 0.8529  F1: 0.0092  Supp: 34
+accuracy        | 0.9396
+macro avg       | Prec: 0.3340  Rec: 0.5622  F1: 0.3069  Supp: 411884
+weighted avg    | Prec: 0.9733  Rec: 0.9396  F1: 0.9526  Supp: 411884
+
+
+ Round 5 Results Summary:
+------------------------------------------------------------
+parameters: 
+{
+    "num_heads": 2,
+    "ff_dim": 64,
+    "num_layers": 2,
+    "dropout_rate": 0.4,
+    "learning_rate": 0.0005,
+    "batch_size": 64,
+    "epochs": 20,
+    "activation": "relu",
+    "gamma": 2.0,
+    "alpha": 0.25
+}
+Training Time: 589s
+Analysis        | Prec: 0.0693  Rec: 0.9840  F1: 0.1294  Supp: 437
+Backdoors       | Prec: 0.0331  Rec: 0.0151  F1: 0.0208  Supp: 397
+DoS             | Prec: 0.2288  Rec: 0.0309  F1: 0.0544  Supp: 1133
+Exploits        | Prec: 0.7281  Rec: 0.4406  F1: 0.5490  Supp: 5520
+Fuzzers         | Prec: 0.3679  Rec: 0.6765  F1: 0.4766  Supp: 4359
+Generic         | Prec: 0.7146  Rec: 0.7898  F1: 0.7503  Supp: 5076
+Normal          | Prec: 0.9998  Rec: 0.9749  F1: 0.9872  Supp: 391955
+Reconnaissance  | Prec: 0.0909  Rec: 0.0004  F1: 0.0007  Supp: 2671
+Shellcode       | Prec: 0.0631  Rec: 0.9073  F1: 0.1181  Supp: 302
+Worms           | Prec: 0.0168  Rec: 0.9118  F1: 0.0330  Supp: 34
+accuracy        | 0.9524
+macro avg       | Prec: 0.3312  Rec: 0.5731  F1: 0.3120  Supp: 411884
+weighted avg    | Prec: 0.9752  Rec: 0.9524  F1: 0.9615  Supp: 411884
+
+
+ Round 6 Results Summary:
+------------------------------------------------------------
+parameters: 
+{
+    "num_heads": 2,
+    "ff_dim": 128,
+    "num_layers": 2,
+    "dropout_rate": 0.4,
+    "learning_rate": 0.0004,
+    "batch_size": 64,
+    "epochs": 20,
+    "activation": "relu",
+    "gamma": 2.0,
+    "alpha": 0.25
+}
+Training Time: 1280s
+Analysis        | Prec: 0.0917  Rec: 0.4508  F1: 0.1524  Supp: 437
+Backdoors       | Prec: 0.0829  Rec: 0.4786  F1: 0.1413  Supp: 397
+DoS             | Prec: 0.1616  Rec: 0.2560  F1: 0.1982  Supp: 1133
+Exploits        | Prec: 0.7555  Rec: 0.4484  F1: 0.5628  Supp: 5520
+Fuzzers         | Prec: 0.3692  Rec: 0.7671  F1: 0.4985  Supp: 4359
+Generic         | Prec: 0.9877  Rec: 0.7924  F1: 0.8793  Supp: 5076
+Normal          | Prec: 1.0000  Rec: 0.9795  F1: 0.9896  Supp: 391955
+Reconnaissance  | Prec: 0.7016  Rec: 0.4137  F1: 0.5205  Supp: 2671
+Shellcode       | Prec: 0.0680  Rec: 0.4470  F1: 0.1181  Supp: 302
+Worms           | Prec: 0.0178  Rec: 0.9118  F1: 0.0349  Supp: 34
+accuracy        | 0.9608
+macro avg       | Prec: 0.4236  Rec: 0.5945  F1: 0.4095  Supp: 411884
+weighted avg    | Prec: 0.9830  Rec: 0.9608  F1: 0.9697  Supp: 411884
+
+
+ Round 7 Results Summary:
+------------------------------------------------------------
+parameters: 
+{
+    "num_heads": 2,
+    "ff_dim": 128,
+    "num_layers": 2,
+    "dropout_rate": 0.4,
+    "learning_rate": 0.0003,
+    "batch_size": 64,
+    "epochs": 20,
+    "activation": "relu",
+    "gamma": 2.0,
+    "alpha": 0.25
+}
+Training Time: 1409s
+Analysis        | Prec: 0.1204  Rec: 0.6865  F1: 0.2049  Supp: 437
+Backdoors       | Prec: 0.1245  Rec: 0.2418  F1: 0.1644  Supp: 397
+DoS             | Prec: 0.2338  Rec: 0.0953  F1: 0.1354  Supp: 1133
+Exploits        | Prec: 0.6541  Rec: 0.5953  F1: 0.6233  Supp: 5520
+Fuzzers         | Prec: 0.3681  Rec: 0.8295  F1: 0.5099  Supp: 4359
+Generic         | Prec: 0.8775  Rec: 0.7900  F1: 0.8314  Supp: 5076
+Normal          | Prec: 0.9999  Rec: 0.9805  F1: 0.9901  Supp: 391955
+Reconnaissance  | Prec: 0.6984  Rec: 0.5575  F1: 0.6200  Supp: 2671
+Shellcode       | Prec: 0.1858  Rec: 0.3907  F1: 0.2519  Supp: 302
+Worms           | Prec: 0.0178  Rec: 0.8529  F1: 0.0348  Supp: 34
+accuracy        | 0.9648
+macro avg       | Prec: 0.4280  Rec: 0.6020  F1: 0.4366  Supp: 411884
+weighted avg    | Prec: 0.9806  Rec: 0.9648  F1: 0.9712  Supp: 411884
+
+
+ Round 8 Results Summary:
+------------------------------------------------------------
+parameters: 
+{
+    "num_heads": 2,
+    "ff_dim": 256,
+    "num_layers": 2,
+    "dropout_rate": 0.4,
+    "learning_rate": 0.0003,
+    "batch_size": 64,
+    "epochs": 20,
+    "activation": "relu",
+    "gamma": 2.0,
+    "alpha": 0.25
+}
+Training Time: 1773s
+Analysis        | Prec: 0.0641  Rec: 0.1899  F1: 0.0959  Supp: 437
+Backdoors       | Prec: 0.1257  Rec: 0.7859  F1: 0.2167  Supp: 397
+DoS             | Prec: 0.2415  Rec: 0.1765  F1: 0.2040  Supp: 1133
+Exploits        | Prec: 0.6124  Rec: 0.5437  F1: 0.5760  Supp: 5520
+Fuzzers         | Prec: 0.3621  Rec: 0.6777  F1: 0.4720  Supp: 4359
+Generic         | Prec: 0.7209  Rec: 0.7906  F1: 0.7541  Supp: 5076
+Normal          | Prec: 1.0000  Rec: 0.9761  F1: 0.9879  Supp: 391955
+Reconnaissance  | Prec: 0.6286  Rec: 0.4384  F1: 0.5165  Supp: 2671
+Shellcode       | Prec: 0.0678  Rec: 0.5662  F1: 0.1211  Supp: 302
+Worms           | Prec: 0.0186  Rec: 0.9118  F1: 0.0364  Supp: 34
+accuracy        | 0.9579
+macro avg       | Prec: 0.3842  Rec: 0.6057  F1: 0.3981  Supp: 411884
+weighted avg    | Prec: 0.9775  Rec: 0.9579  F1: 0.9664  Supp: 411884
+
+
+ Round 9 Results Summary:
+------------------------------------------------------------
+parameters: 
+{
+    "num_heads": 2,
+    "ff_dim": 128,
+    "num_layers": 3,
+    "dropout_rate": 0.4,
+    "learning_rate": 0.0003,
+    "batch_size": 64,
+    "epochs": 20,
+    "activation": "relu",
+    "gamma": 2.0,
+    "alpha": 0.25
+}
+Training Time: 1106s
+Analysis        | Prec: 0.0972  Rec: 0.8032  F1: 0.1734  Supp: 437
+Backdoors       | Prec: 0.1000  Rec: 0.0025  F1: 0.0049  Supp: 397
+DoS             | Prec: 0.1192  Rec: 0.2992  F1: 0.1704  Supp: 1133
+Exploits        | Prec: 0.8394  Rec: 0.3524  F1: 0.4964  Supp: 5520
+Fuzzers         | Prec: 0.3454  Rec: 0.7272  F1: 0.4683  Supp: 4359
+Generic         | Prec: 0.6187  Rec: 0.7866  F1: 0.6926  Supp: 5076
+Normal          | Prec: 0.9999  Rec: 0.9740  F1: 0.9867  Supp: 391955
+Reconnaissance  | Prec: 0.6790  Rec: 0.3587  F1: 0.4694  Supp: 2671
+Shellcode       | Prec: 0.0714  Rec: 0.5298  F1: 0.1258  Supp: 302
+Worms           | Prec: 0.0153  Rec: 0.9118  F1: 0.0302  Supp: 34
+accuracy        | 0.9534
+macro avg       | Prec: 0.3885  Rec: 0.5745  F1: 0.3618  Supp: 411884
+weighted avg    | Prec: 0.9790  Rec: 0.9534  F1: 0.9629  Supp: 411884
+
+
+ Round 10 Results Summary:
+------------------------------------------------------------
+parameters: 
+{
+    "num_heads": 2,
+    "ff_dim": 128,
+    "num_layers": 2,
+    "dropout_rate": 0.4,
+    "learning_rate": 0.00035,
+    "batch_size": 64,
+    "epochs": 20,
+    "activation": "relu",
+    "gamma": 2.0,
+    "alpha": 0.25
+}
+Training Time: 1466s
+Analysis        | Prec: 0.0805  Rec: 0.2265  F1: 0.1188  Supp: 437
+Backdoors       | Prec: 0.1098  Rec: 0.6599  F1: 0.1883  Supp: 397
+DoS             | Prec: 0.1653  Rec: 0.2383  F1: 0.1952  Supp: 1133
+Exploits        | Prec: 0.6357  Rec: 0.5004  F1: 0.5600  Supp: 5520
+Fuzzers         | Prec: 0.3733  Rec: 0.7935  F1: 0.5078  Supp: 4359
+Generic         | Prec: 0.9143  Rec: 0.7884  F1: 0.8467  Supp: 5076
+Normal          | Prec: 1.0000  Rec: 0.9792  F1: 0.9895  Supp: 391955
+Reconnaissance  | Prec: 0.6579  Rec: 0.3448  F1: 0.4525  Supp: 2671
+Shellcode       | Prec: 0.1058  Rec: 0.5960  F1: 0.1796  Supp: 302
+Worms           | Prec: 0.0174  Rec: 0.8824  F1: 0.0341  Supp: 34
+accuracy        | 0.9609
+macro avg       | Prec: 0.4060  Rec: 0.6010  F1: 0.4072  Supp: 411884
+weighted avg    | Prec: 0.9803  Rec: 0.9609  F1: 0.9688  Supp: 411884
+
+
+ Round 11 Results Summary:
+------------------------------------------------------------
+parameters: 
+{
+    "num_heads": 2,
+    "ff_dim": 128,
+    "num_layers": 2,
+    "dropout_rate": 0.45,
+    "learning_rate": 0.0003,
+    "batch_size": 64,
+    "epochs": 20,
+    "activation": "relu",
+    "gamma": 2.0,
+    "alpha": 0.25
+}
+Training Time: 1044s
+Analysis        | Prec: 0.1143  Rec: 0.2654  F1: 0.1598  Supp: 437
+Backdoors       | Prec: 0.0936  Rec: 0.6826  F1: 0.1646  Supp: 397
+DoS             | Prec: 0.1037  Rec: 0.0759  F1: 0.0877  Supp: 1133
+Exploits        | Prec: 0.7281  Rec: 0.5754  F1: 0.6428  Supp: 5520
+Fuzzers         | Prec: 0.3564  Rec: 0.7272  F1: 0.4784  Supp: 4359
+Generic         | Prec: 0.6336  Rec: 0.7872  F1: 0.7021  Supp: 5076
+Normal          | Prec: 0.9999  Rec: 0.9743  F1: 0.9870  Supp: 391955
+Reconnaissance  | Prec: 0.6113  Rec: 0.2261  F1: 0.3301  Supp: 2671
+Shellcode       | Prec: 0.0619  Rec: 0.6159  F1: 0.1125  Supp: 302
+Worms           | Prec: 0.0167  Rec: 0.8235  F1: 0.0327  Supp: 34
+accuracy        | 0.9554
+macro avg       | Prec: 0.3720  Rec: 0.5754  F1: 0.3698  Supp: 411884
+weighted avg    | Prec: 0.9774  Rec: 0.9554  F1: 0.9643  Supp: 411884
+
+
