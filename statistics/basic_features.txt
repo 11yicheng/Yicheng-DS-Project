@@ -1,0 +1,389 @@
+Analysis:
+To effectively identify "Analysis" type attacks within the UNSW-NB15 dataset, a careful selection of features that exhibit distinguishing characteristics between "Normal" and "Analysis" traffic is necessary. The goal is to pinpoint features where there is a significant difference in statistical metrics like mean, standard deviation, or categorical distribution between "Normal" and "Analysis" traffic. Here’s a recommended set of 20 representative features based on the provided statistics:
+
+1. **dur**: The duration has a higher mean in "Analysis" but much higher variance, indicating varied session times possibly due to probing activities.
+2. **sbytes**: Significantly lower mean in "Analysis" compared to "Normal", potentially indicating less data being sent to scan.
+3. **dbytes**: Extremely low in "Analysis" suggesting responses are minimal or ignored, typical of scanning activities.
+4. **spkts** and **dpkts**: Together, these represent significantly lower packet counts in "Analysis", reflecting less intense data transfers.
+5. **sload**: Higher mean and standard deviation in "Analysis" indicative of potential bursts or spikes during probing.
+6. **dload**: Lower values and significant zeros in "Analysis" may suggest the nature of reconnaissance wouldn’t require or expect a response.
+7. **smeansz** and **dmeansz**: These features have distinguishing averages in the datasets, with generally smaller mean sizes in attacks.
+8. **sttl** and **dttl**: The TTL value has a higher mean in "Analysis", possibly reflecting the try to hide the scan origin or testing from further networks.
+9. **tcprtt**, **synack**, **ackdat**: Higher latency measures in "Analysis" may reflect anomaly in conversation for reconnaissance.
+10. **ct_srv_src** and **ct_srv_dst**: "Analysis" has a slightly higher mean, possible evidence of testing multiple services from a single source.
+11. **ct_dst_ltm**: Lower in "Analysis", consistent with variety in target destinations seen in reconnaissance.
+12. **ct_flw_http_mthd**: Markedly higher in "Analysis", indicating more HTTP methods being tried during scanning activities.
+13. **res_bdy_len**: Lower in "Analysis" since payload/body exchanged between client-server in normal traffic is more often zeroed in attacks.
+14. **proto**: A marked variety compared to the limited protocols in "Normal", indicating potential usage of unusual protocols for reconnaissance.
+15. **service**: Again, limited services in "Analysis", often conveyed through "unknown" service, reflecting the unconventional ways analysis attacks may appear in network traffic.
+16. **state**: Difference in states with "FIN", "CON" etc., indicating session or flow end triggers and may represent anomalies.
+
+These selected features highlight discrepancies in behavior that align with reconnaissance signatures, like probe attempts to gather network intelligence or scan for vulnerabilities without engaging in full-fledged data transfer, thus guiding an effective intrusion detection strategy for identifying "Analysis" attacks.
+
+Backdoors:
+Based on the statistical comparison of the "Normal" and "Backdoors" traffic in the UNSW-NB15 dataset, a careful selection of the top 20 representative features that could potentially identify Backdoors attacks can be recommended. The selection is informed by a combination of statistical differences between normal and backdoor traffic, domain expertise, and the features' relevance to potential backdoor characteristics. Here are the selected features with a brief explanation:
+
+1. **dur**: The duration of the connections is significantly longer in backdoors, which might indicate persistent unauthorized access.
+
+2. **sbytes**: The lower mean in backdoors suggests smaller data transfers, which is typical for maintaining stealth operations.
+
+3. **dbytes**: The dramatically lower values for backdoors imply minimal or no data being sent back to the attacker, aligning with certain command-and-control operations.
+
+4. **spkts**: Compared to normal traffic, backdoor traffic generally involves fewer packets, likely due to the operation of the backdoor in sending commands.
+
+5. **dpkts**: Significantly fewer packets are often returned in a backdoor scenario.
+
+6. **sload**: A marked difference in load, indicating that backdoors might use more systematic traffic patterns over time.
+
+7. **dload**: The low values may imply stealth or negligible payloads from the victim side back to the attacker.
+
+8. **smeansz**: Smaller mean source packet sizes could be indicative of control signal packets typical in backdoors.
+
+9. **sttl**: In backdoor traffic, higher TTL values indicate a different networking behavior which might be used to detect untoward outbound connections.
+
+10. **dttl**: The discrepancies in time-to-live values could be leveraged for identifying protocol anomalies indicative of backdoors.
+
+11. **tcprtt**: This latency could be uneven in backdoors due to the irregular, command-based nature of the traffic.
+
+12. **synack**: Differences could suggest unconventional handshake patterns.
+
+13. **ackdat**: Could reflect irregularities in acknowledging data, symptomatic of abnormal traffic.
+
+14. **ct_dst_ltm**: Fewer repeated connections to the destination in backdoors might align with their secretive nature.
+
+15. **ct_src_dport_ltm**: Differences reflect variations in normal vs. malicious engagement to common ports.
+
+16. **ct_dst_sport_ltm**: Observing patterns in source ports that match destination addresses may indicate exploitation avenues.
+
+17. **ct_dst_src_ltm**: Direct pair communications could uncover persistent sessions familiar to backdoor characteristics.
+
+18. **state**: The state distribution, with a dominance of 'INT' in backdoor attacks, is a strong indicator of connection handling peculiarities.
+
+19. **proto**: Many backdoors utilize uncommon or non-standard protocols for communication, as reflected in the diversity.
+
+20. **service**: Fewer known services during backdoor attacks with a skew towards 'unknown', which might suggest obfuscation.
+
+This selection emphasizes features with distinct statistical contrasts and potential to capture unique networking behavior commonly associated with backdoors. These features will be valuable in constructing models to detect backdoor intrusions.
+
+DoS:
+Identifying the most representative features that can help in accurately detecting DoS (Denial of Service) attacks from network traffic is crucial for improving the efficiency of intrusion detection systems. Based on the UNSW-NB15 dataset description you've provided, I'll recommend selecting features that most distinctly differ between normal and DoS attack traffic. These features should not only help in detecting anomalies but also provide insights into the behavior of network interactions during DoS events.
+
+### Recommended Top 20 Representative Features
+
+1. **sbytes (Source to Destination Transaction Bytes):** DoS attacks often result in unusually high volumes of data towards the target, differentiating them from normal traffic, where sbytes values are significantly lower.
+
+2. **dbytes (Destination to Source Transaction Bytes):** DoS attacks may involve significant response data, though it's often asymmetric compared to sbytes.
+
+3. **spkts (Source to Destination Packet Count):** The number of packets sent is generally higher in a DoS, as these attacks flood the target with requests.
+
+4. **dpkts (Destination to Source Packet Count):** Similar to spkts, this feature may be indicative of a flood of responses or lack of it due to the attack.
+
+5. **sload (Source Bits per Second):** A critical feature that captures the high bandwidth demands typical in DoS attacks.
+
+6. **dload (Destination Bits per Second):** While not as significantly affected as sload in source-initiated attacks, this can still show anomalies.
+
+7. **sttl (Source to Destination Time to Live Value):** TTL changes can indicate crafted or unusual packet transmissions typical in DoS scenarios.
+
+8. **dttl (Destination to Source Time to Live Value):** Provides additional context on packet integrity and routing paths.
+
+9. **dur (Record Total Duration):** The session duration for DoS is often shorter due to rapid initiation and completion of malicious connections or longer because of session maintenance attempts.
+
+10. **proto (Transaction Protocol):** Different protocols may have varying susceptibilities to DoS attacks, as reflected in the range and count of protocols used during such events.
+
+11. **service (Service):** The types of services being targeted can vary, with DoS affecting specific services differently.
+
+12. **ct_srv_dst (No. of Connections to the Same Service and Destination):** Could indicate repetition of service abuse characteristic in DoS attacks.
+
+13. **ct_dst_src_ltm (No. of Connections of Same Source and Destination):** High values may indicate repeated connection attempts typical in DoS.
+
+14. **ct_srv_src (No. of Connections to the Same Service and Source):** Similar to ct_srv_dst, high repetition rates can signify targeting.
+
+15. **ct_flw_http_mthd (No. of Flows with HTTP Methods):** Peaks can signal deliberate abuse of web services in DoS.
+
+16. **smeansz (Mean of Source Packet Size):** Abnormal packet sizes could be crafted to overwhelm targets uniquely.
+
+17. **dmeansz (Mean of Destination Packet Size):** Again, attacks might show unusual packet sizing.
+
+18. **synack (TCP Connection Setup Time between SYN and SYN-ACK):** Delays or rapid successions might indicate probing or flood attempts.
+
+19. **tcprtt (Total TCP Round Trip Time):** Elevated or anomalous time represents packet handling issues in stress scenarios.
+
+20. **state (State of Transaction Protocol):** Track protocol states to discover unusual patterns, such as an unusually high number of incomplete connections.
+
+These features were chosen because they reflect both the typical anomalies produced by DoS attacks, such as excessive traffic, unusual packet behavior, and disrupted communication states. Effective intrusion detection relies on these discriminative elements to recognize deviations from normalcy in network traffic.
+
+Exploits:
+Based on the statistical comparison provided between normal and exploits traffic from the UNSW-NB15 dataset, I'll use my expertise to recommend the 20 most representative features that could help accurately identify Exploits-type attacks. This list will focus on features that demonstrate significant differences between normal and exploits traffic or are inherently valuable in identifying network intrusions:
+
+1. **dur**: The average duration of exploits is longer, and the longer connection times can indicate suspicious behavior.
+
+2. **sbytes**: The wider range and higher mean in exploits traffic suggest this feature as a differentiator for higher volumes of data sent from the source.
+
+3. **dbytes**: Unlike sbytes, the destination bytes are less with exploits attacks, but the variance may still be a good distinguisher.
+
+4. **sttl**: Considerably higher average time to live values in exploits, indicating potential deviations in typical network behavior.
+
+5. **dttl**: Similar to sttl, a significant variance helps highlight unique traffic patterns.
+
+6. **sload**: The notable difference in bits per second (source-side) serves as a strong metric for unusual load activity in attacks.
+
+7. **dload**: Like sload, the dramatic variance might be useful for detecting data exfiltration activities.
+
+8. **tcprtt**: The higher mean values suggest longer connection setup times, characteristic of exploits.
+
+9. **synack**: Much broader spread in exploits implies longer or unusual handshake parts in the connection.
+
+10. **ackdat**: This might reflect unusual acknowledgment delays that are present in exploits traffic.
+
+11. **ct_srv_src**: Indicates repeated connections from the same source and can be elevated during an exploit attempt.
+
+12. **ct_src_ltm**: Higher values during exploits represent more frequent connections from a single source.
+
+13. **ct_flw_http_mthd**: The frequency of particular HTTP methods can be anomalous in exploit attacks.
+
+14. **trans_depth**: Indicates the depth of protocol operations, potentially revealing recursive or abnormal depth in protocols affected by exploits.
+
+15. **res_bdy_len**: Size of the response body could significantly differ if the exploit is about leaking larger data.
+
+16. **state**: Attack states such as FIN or INT may be more common in exploits than in normal traffic.
+
+17. **proto**: The distribution of protocol types can be notable; for example, certain rarely used protocols might be indicative of attacks.
+
+18. **service**: The prominence of certain services (e.g., http compared to the spread in normal traffic) can indicate exploit targeting common services.
+
+19. **spkts**: Average packet count per flow from source shows notable differences, which might indicate more aggressive data pushing in exploits.
+
+20. **is_sm_ips_ports**: While the feature is all zero for exploits, its presence (however sparse) in normal traffic indicates its potential as a discriminate feature.
+
+With these features, an advanced model could be created to effectively identify exploit-based intrusions, utilizing the substantial variance, mean differences, and categorical distinctions observed in exploit traffic.
+
+Fuzzers:
+To identify the 20 most representative features for Fuzzers type attacks in the UNSW-NB15 dataset, let's utilize the statistical differences between the "Normal" and "Fuzzers" types of traffic. Here, we can focus on features that show substantial differentiation between these two traffic types, either in their means, standard deviations, distributions, or unique characteristics.
+
+### Recommendations:
+
+1. **`sbytes` (Source to destination transaction bytes):**
+   - Normal has higher values compared to Fuzzers, suggesting a potential indicator.
+
+2. **`dbytes` (Destination to source transaction bytes):**
+   - A significant drop in Fuzzers indicates different data transfer characteristics.
+
+3. **`spkts` (Source to destination packet count):**
+   - Noticeable drop in packet count for Fuzzers type, indicating shorter conversations.
+
+4. **`dpkts` (Destination to source packet count):**
+   - Similar to `spkts`, shows significant reduction for Fuzzers.
+
+5. **`sload` (Source bits per second):**
+   - Extremely high mean and std deviation in Fuzzers suggest potential for anomaly detection.
+
+6. **`dload` (Destination bits per second):**
+   - Notably lower in Fuzzers, reinforcing load differences.
+
+7. **`sttl` (Source to destination time to live value):**
+   - High, less variable values in Fuzzers, indicating uniform packet lifetimes.
+
+8. **`trans_depth` (Pipelined depth into connection):**
+   - Lower in Fuzzers, showing simpler or different application layer interactions.
+
+9. **`service` (Service field):**
+   - Skewed vastly towards `unknown` in Fuzzers, indicating deviations in service patterns.
+
+10. **`state` (Protocol state):**
+    - "FIN" state more prevalent in Fuzzers, differentiating it from other states in Normal traffic.
+
+11. **`proto` (Transaction protocol):**
+    - Larger diversity in Fuzzers, which may indicate misuse of unusual protocols.
+
+12. **`dmeansz` (Mean of the flow packet size transmitted by destination):**
+    - Fuzzers have a lower mean, implying smaller packet sizes.
+
+13. **`smeansz` (Mean of the flow packet size transmitted by source):**
+    - Indicates different sizing per flow.
+
+14. **`tcprtt` (TCP connection setup round-trip time):**
+    - Much larger in Fuzzers, perhaps signaling latency or processing delays indicative of anomalies.
+
+15. **`synack` (TCP connection setup time between SYN and SYN_ACK):**
+    - Also larger in Fuzzers, supporting previous latency findings.
+
+16. **`ackdat` (TCP connection setup time between SYN_ACK and ACK):**
+    - Similar pattern, indicative of handshake irregularities.
+
+17. **`ct_dst_ltm` (Connections count for same destination):**
+    - Lower in Fuzzers, suggesting less targeted connections or a more scattered attack profile.
+
+18. **`ct_src_ltm` (Connections count for the same source):**
+    - Show different distributions, potentially reflecting less repeated use of same sources.
+
+19. **`is_sm_ips_ports` (Same IPs and Ports):**
+    - Being always 0 for Fuzzers may signify measures to evade simple checks.
+
+20. **`res_bdy_len` (HTTP service response body length):**
+    - Minimal in Fuzzers, indicating lack of or minimal server response data associated with attacks.
+
+These features reflect various characteristics of network traffic that can help in discerning normal traffic from Fuzzers type attacks, especially when it comes to connection patterns, data transfer rates, and protocol nuances. Analyzing these could enhance the detection capabilities for Fuzzers attacks in the context of an intrusion detection system.
+
+Generic:
+To identify the most representative features that accurately distinguish "Generic" type attacks from normal traffic, we need to focus on those features that exhibit substantial differences in their statistical properties between the Normal and Generic traffic types. Let’s go through the features and determine which ones are most indicative:
+
+1. **`dur` (Duration):** Significant difference is noted in mean, where Generic attacks have a much shorter duration.
+2. **`sbytes` (Source Bytes):** Generic attacks show much lower mean and median values indicating smaller data transfers.
+3. **`dbytes` (Destination Bytes):** In Generic attacks, mean and median are close to zero, suggesting unidirectional traffic.
+4. **`spkts` (Source Packets):** A striking difference is observed in packet counts being significantly lower in Generic attacks.
+5. **`dpkts` (Destination Packets):** Similar to spkts, indicating reduced two-way communication.
+6. **`sload` (Source Load):** Higher values and dispersion for Generic, suggesting more aggressive data throughput.
+7. **`dload` (Destination Load):** Very low in Generic, again indicating unidirectional behavior.
+8. **`smeansz` (Source Mean Packet Size):** Although not as substantial, the typical packet size might provide useful patterns.
+9. **`dmeansz` (Destination Mean Packet Size):** Reflects minimal outgoing response in Generic attacks.
+10. **`sttl` (Source TTL):** High uniform value in Generic, possibly indicating consistent network paths or deliberate manipulation.
+11. **`tcprtt`, `synack`, `ackdat` (TCP-specific round-trip and setup times):** Differs widely, showing distinct connection patterns in the Generic traffic.
+12. **`ct_srv_src`, `ct_srv_dst` (Service and relationship counts):** Higher means for Generic suggest these attacks often utilize persistent or repeated service interactions.
+13. **`ct_dst_ltm`, `ct_src_ltm` (Long-term connection counts):** Frequency of the same IP addresses and ports is markedly different.
+14. **`ct_src_dport_ltm`, `ct_dst_sport_ltm`:** Reflects specialization of ports indicating targeted nature of Generic attacks.
+15. **`ct_dst_src_ltm`:** Further underlines the focal nature of these attacks using specific IP pairs.
+16. **`trans_depth`:** Slightly reduced in Generic, possibly not relying on deep HTTP transactions.
+17. **`state`:** The categorical breakdown indicates a high prevalence of the `INT` state in Generic, suggesting incomplete transactions.
+18. **`service` (Service Type):** Different distributions, notably with a high occurrence of `dns` in Generic.
+19. **`proto` (Protocol):** Diverse range used by Generic attacks, with `udp` being predominant.
+20. **`res_bdy_len`:** Lower length in Generic can indicate short or non-existent response bodies, typical of denial of service or probing behaviors.
+
+These features capture both the network behavior (bytes, packets, duration) and higher-level metadata (states, services, protocols) variants. The chosen features are representative as they cover intricate aspects from raw data metrics to inferred behavioral patterns, providing a comprehensive basis for distinguishing "Generic" attacks. These recommendations consider prominent features reflecting consistent deviations and patterns typical of such attack scenarios as demonstrated by the generic traffic's statistical profile.
+
+Reconnaissance:
+Based on the statistical summary provided for the normal and reconnaissance traffic types, here is a recommendation for 20 features that could effectively help identify reconnaissance attacks:
+
+1. **dur**: Reconnaissance traffic seems to have longer durations compared to normal traffic, indicating potential scanning or extensive probing activities.
+
+2. **sbytes**: The lower average and standard deviation in reconnaissance traffic compared to normal suggests less data exchange typical of scanning or probing.
+
+3. **dbytes**: The minimal data returned in reconnaissance cases reinforces the assumption of probing or scanning behavior.
+
+4. **spkts**: A lower packet count during reconnaissance operations aligns with scanning activity, which often involves sending minimal packets.
+
+5. **dpkts**: Similarly, fewer packets received supports the probing behavior in reconnaissance.
+
+6. **sttl**: A higher standard deviation in `sttl` (Source to destination time to live value) might indicate TTL manipulation in reconnaissance.
+
+7. **dttl**: The wide variation in the destination TTL values might be an indicator of different network paths or evasion techniques.
+
+8. **sload**: High `sload`, despite low bytes and packets, suggests bursty or rapid scanning actions typical in reconnaissance phase.
+
+9. **dload**: The dramatically lower load on the destination side might be indicative of limited response from targeted reconnaissance.
+
+10. **smeansz**: Lower mean packet sizes in reconnaissance align with packet measurements typically observed in scanning activities.
+
+11. **dmeansz**: A very small average size from the destination could suggest minimal processed payload or response data.
+
+12. **tcprtt**: The significantly increased round-trip time in reconnaissance could be due to network latency differences encountered at various probing stages.
+
+13. **synack**: Longer `synack` times in reconnaissance might suggest reluctance or latency in server responses amid probes.
+
+14. **ackdat**: Similarly, increased `ackdat` time can indicate cautious or delayed exchanges between source and destination in reconnaissance.
+
+15. **ct_srv_src**: Lower values indicate fewer repeated connections from the same source IP with the same service, typical of reconnaissance attempting diverse IPs or services.
+
+16. **ct_srv_dst**: Lower counts here suggest the attacker might be probing multiple services or endpoints, hence in smaller grouped increments.
+
+17. **ct_dst_src_ltm**: Lower repetition frequency in reconnaissance reflects broader target sweep strategies.
+
+18. **ct_src_dport_ltm**: Limited occurrences of the same source-target pairs over certain ports may highlight low-profile, exploratory efforts in reconnaissance.
+
+19. **service**: Some services (e.g., `snmp`, `http`) are notably frequent in reconnaissance actions as shown here, and thus critical to feature analysis.
+
+20. **proto**: A wide diversity of protocol use in reconnaissance compared to normal traffic suggests attempts to discover node capabilities or vulnerabilities.
+
+These features are selected to provide a mix of direct traffic measures, behavioral cues, and statistical differences between normal and reconnaissance activities, emphasizing the reconnaissance strategies of maximizing diversity while maintaining stealth.
+
+Shellcode:
+Selecting the most representative features for detecting Shellcode attacks can be crucial for developing effective intrusion detection systems. Given the detailed statistical comparison between "Normal" and "Shellcode" traffic, we can identify features that exhibit significant differences in statistics such as mean, standard deviation, and distribution characteristics.
+
+Here's an analysis of which features might be useful in distinguishing Shellcode attacks:
+
+1. **sbytes**: A significantly lower mean and standard deviation in Shellcode traffic compared to normal. Useful to identify abnormal data size coming from the source.
+
+2. **dbytes**: Extremely low for Shellcode traffic, indicating very limited data return from the destination, which is characteristic of certain types of intrusion.
+
+3. **spkts**: Lower packet count for Shellcode, possibly indicative of shorter communication attempts.
+
+4. **dpkts**: Similarly, a lower packet count from the destination. 
+
+5. **sload**: A much higher mean and very high variability in Shellcode traffic, indicative of short bursts possibly associated with Shellcode activity.
+
+6. **dload**: Much lower in comparison to normal, aligning with the nature of Shellcode where minimal data is sent back.
+
+7. **sttl**: Consistent value in Shellcode traffic (254), possibly linked to default TTL values in specific types of network activity associated with Shellcode attacks.
+
+8. **tcprtt**: Significantly different distribution; low median but high variability suggests inconsistency in TCP setup time, potentially useful.
+
+9. **synack**: Reflects differences in connection setup patterns between normal and Shellcode traffic.
+
+10. **ackdat**: Same reasoning as synack; provides information about TCP connection behavior.
+
+11. **ct_srv_src**: Lower in Shellcode, indicating fewer service connections from each source.
+
+12. **ct_srv_dst**: Similarly lower, perhaps due to the attack pattern trying not to saturate any service.
+
+13. **ct_dst_ltm**: Lower, suggesting fewer connections to a given destination over time—possibly showing spread across multiple targets.
+
+14. **ct_src_ltm**: Indicates fewer persistent connections per source, consistent with potential probing behavior.
+
+15. **ct_src_dport_ltm**: Constant value for Shellcode implies special-purpose communication patterns or ports involved.
+
+16. **ct_dst_sport_ltm**: Same as ct_src_dport_ltm, reinforcing the presence of fixed communication patterns.
+
+17. **ct_dst_src_ltm**: Lower, which may relate to the Shellcode attack mechanism avoiding detection by spreading activity.
+
+18. **state**: The difference in state distribution suggests strong deviations (e.g., dominance of 'INT' in Shellcode) useful for classification.
+
+19. **proto**: Different distribution with more UDP activity in Shellcode, crucial for protocol-based traffic analysis.
+
+20. **service**: All Shellcode services are 'unknown', highlighting a clear distinction in behavior patterns.
+
+These features were selected based on their statistical differences between normal and Shellcode traffic and potential informativeness in distinguishing attack characteristics. A robust network intrusion detection model using these features could be trained and fine-tuned to improve its performance on detecting Shellcode attacks specifically.
+
+Worms:
+When identifying the most representative features for detecting Worms type attacks within the dataset, we need to focus on distinguishing characteristics that are specific to Worms compared to normal traffic. Here's an analysis based on the provided statistics and feature definitions:
+
+1. **dur (duration):** Worms have a longer duration compared to normal traffic. This is evident from both the mean and higher quartile values.
+
+2. **sbytes (source bytes):** Normal traffic has a higher average source byte count than Worms, but Worms show a concentrated pattern with specific central tendencies.
+
+3. **dbytes (destination bytes):** Worms generate highly variable destination bytes, as indicated by a significantly larger mean and standard deviation.
+
+4. **spkts (source packets):** Normal traffic samples tend to have more source packets on average, providing differentiation.
+
+5. **dpkts (destination packets):** Worms have a broader spread of destination packets. This variance in packet spread can be an anomaly indicator.
+
+6. **sload (source load):** Worms exhibit irregular source load patterns, indicated by higher mean and maximum values.
+
+7. **dload (destination load):** Shows variability in Worms, potentially indicating anomalous patterns.
+
+8. **smeansz (mean source packet size):** Differences in mean size of packets from the source between normal and Worms can be indicative of structural differences in the traffic.
+
+9. **dmeansz (mean destination packet size):** The variability in Worms can be a feature for identification.
+
+10. **sttl (source time to live):** The mean and quartile differences suggest distinct traffic paths or lifecycles for Worms.
+
+11. **tcprtt (TCP round trip time):** Elevated round trip times in Worms can indicate network latency or congestion patterns unusual for regular traffic.
+
+12. **synack:** Higher than normal syn-ack times may reflect difficulties in connection establishment in Worms.
+
+13. **ackdat:** Differences in ack-dat time reflect protocol layer anomalies.
+
+14. **ct_srv_src:** Reflects how frequently the same service and source appear. Lower counts in Worms suggest more transient or variable service-source relationships.
+
+15. **ct_srv_dst:** Lower values in Worms suggest infrequent repeated service-use patterns at the destination, typical in Worm propagation efforts.
+
+16. **ct_dst_ltm:** Reflects connection behavior per destination, showing less persistence in Worms.
+
+17. **ct_src_ltm:** Indicates infrequent repeated source usage in Worms, due to diversity of propagation vectors.
+
+18. **trans_depth:** High depth frequently indicates thorough HTTP method penetration, present more in Worms.
+
+19. **ct_flw_http_mthd:** Higher method flow usage among Worms indicates varying HTTP actions, perhaps reflect scanning or command execution in propagation.
+
+20. **state and service:** Differences in frequency counts (state: FIN predominant in Worms, service: high HTTP counts) reflect a variation from normal, suggesting usage patterns specific to how Worms conduct network interactions.
+
+These features collectively cover aspects of network behavior in terms of duration, size, packet flow, protocol behavior, and service patterns. They are selected based on their potential to capture distinct anomalies, operational specifics, and utilization tendencies that are characteristic of Worms relative to normal traffic.
+
